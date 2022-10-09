@@ -8,10 +8,50 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #86BBD8;
 }
 
-.container {
-  border: 1px solid red;
+@font-face {
+  font-family: "Batuphat";
+  src: url("fonts/Batuphat\ Script.otf");
+}
+
+.outer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 600px;
+  height: 650px;
+  background-color: #ecaa1a;
+  border-radius: 10px;
+}
+
+.title {
+  margin-top: 10px;
+  font-family: Batuphat;
+  font-size: 50px;
+  color: #F06543;
+}
+
+.buttons {
+  display: flex;
+  width: 95%;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.circle {
+  width: 60px;
+  height: 60px;
+  background-color: aliceblue;
+  border-radius: 60px;
+}
+
+.sketchpad {
+  background: aliceblue;
+  flex: 0 1 inherit;
   height: 500px;
   width: 500px;
   padding: 0;
@@ -19,12 +59,12 @@ body {
   line-height: 0;
 }
 
-.container > div {
+.sketchpad > div {
   display: inline-block;
   width: 31.25px;
   height: 31.25px;
 }
 
 .written {
-  background-color: black;
+  background-color: dimgrey;
 }

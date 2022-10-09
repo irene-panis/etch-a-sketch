@@ -1,4 +1,4 @@
-const container = document.querySelector('.container');
+const sketchpad = document.querySelector('.sketchpad');
 const WIDTH = 500;
 
 // create initial 16x16 grid
@@ -6,7 +6,7 @@ function initialize() {
   for (i = 0; i < 256; i++) {
     const square = document.createElement('div');
     square.classList.add('square');
-    container.appendChild(square);
+    sketchpad.appendChild(square);
     square.addEventListener('mouseover', () => {
       square.classList.add('written');
     });
@@ -19,7 +19,7 @@ function createGrid(numSquares) {
     square.style.width = `${calcSide(numSquares)}px`;
     square.style.height = `${calcSide(numSquares)}px`;
     square.classList.add('square');
-    container.appendChild(square);
+    sketchpad.appendChild(square);
     square.addEventListener('mouseover', () => {
       square.classList.add('written');
     });
@@ -33,7 +33,7 @@ function calcSide(numSquares) {
 function resetGrid() {
   const squares = document.querySelectorAll('.square');
   squares.forEach((square) => {
-    container.removeChild(square);
+    sketchpad.removeChild(square);
   })
 }
 
