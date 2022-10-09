@@ -1,0 +1,22 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100vh;
+  width: 100vh;
+  padding: 0;
+  margin: 0px auto;
+  line-height: 0;
+}
+
+.container > div {
+  display: inline-block;
+  width: 6.25%;
+  height: 6.25%;
+}
+
+.written {
+  background-color: black;
+}
