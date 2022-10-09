@@ -1,3 +1,9 @@
+/*
+
+CREATING GRIDS 
+
+*/
+
 const sketchpad = document.querySelector('.sketchpad');
 const WIDTH = 500;
 
@@ -36,5 +42,22 @@ function resetGrid() {
     sketchpad.removeChild(square);
   })
 }
+
+/*
+
+BUTTON FUNCTIONS
+
+*/
+
+const size = document.querySelector('#size');
+const color = document.querySelector('#color');
+const erase = document.querySelector('#erase');
+
+/*
+
+INITIALIZE
+
+*/
+
 
 initialize();

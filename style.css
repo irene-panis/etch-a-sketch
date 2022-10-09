@@ -11,9 +11,46 @@ body {
   background-color: #86BBD8;
 }
 
+.headline-box {
+  flex: 2.5;
+  border: 1px solid blue;
+}
+
+.device-box {
+  display: flex;
+  justify-content: center;
+  flex: 2;
+  border: 1px solid blue;
+}
+
+.sidebar-box {
+  display: flex;
+  flex: 1.5;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid blue;
+}
+
+.headline {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+h1 {
+  font-family: Batuphat;
+}
+
 @font-face {
   font-family: "Batuphat";
   src: url("fonts/Batuphat\ Script.otf");
+}
+
+.sidebar {
+  width: 300px;
+  height: 700px;
+  border: 1px solid red;
 }
 
 .outer {
@@ -22,9 +59,10 @@ body {
   justify-content: space-around;
   align-items: center;
   width: 600px;
-  height: 650px;
+  height: 700px;
   background-color: #ecaa1a;
   border-radius: 10px;
+  filter: drop-shadow(-5px 5px lightgrey)
 }
 
 .title {
@@ -32,6 +70,7 @@ body {
   font-family: Batuphat;
   font-size: 50px;
   color: #F06543;
+  filter: drop-shadow(-3px 3px #b9492d)
 }
 
 .buttons {
@@ -47,6 +86,7 @@ body {
   height: 60px;
   background-color: aliceblue;
   border-radius: 60px;
+  filter: drop-shadow(-3px 3px lightgrey)
 }
 
 .sketchpad {
