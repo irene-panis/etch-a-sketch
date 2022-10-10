@@ -20,6 +20,7 @@ function initialize() {
 }
 
 function createGrid(numSquares) {
+  resetGrid();
   for (i = 0; i < numSquares*numSquares; i++) {
     const square = document.createElement('div');
     square.style.width = `${calcSide(numSquares)}px`;
@@ -43,6 +44,11 @@ function resetGrid() {
   })
 }
 
+function count() {
+  const squares = document.querySelectorAll('.square');
+  return squares.length;
+}
+
 /*
 
 BUTTON FUNCTIONS
@@ -56,14 +62,33 @@ const sidebar = document.querySelector('.customize');
 const sizeSlider = document.getElementById('#size-slider');
 
 size.addEventListener('click', () => {
+  let value = 16;
+  let total = count();
+  if (total !== 256) { value = Math.sqrt(total)};
   sidebar.innerHTML = `
     <div class="prompt">Choose your pen thickness:</div>
     <div class="slider-container">
       <img src="img/small.jpg" class="pen" width=20px height=20px>
-      <input type="range" min="10" max="100" value="16" class="slider" id="size-slider">
+      <input type="range" min="10" max="100" value="${value}" class="slider" id="size-slider">
       <img src="img/big.jpg" class="pen" width=20px height=20px>
     </div>
   `;
+});
+
+document.addEventListener('change', (e) => {
+  if (e.target && e.target.id == 'size-slider') {
+    createGrid(e.target.value);
+  }
+});
+
+function clearSidebar() {
+  sidebar.innerHTML = "";
+}
+
+erase.addEventListener('click', () => {
+  clearSidebar();
+  let total = count();
+  createGrid(Math.sqrt(total));
 });
 
 
