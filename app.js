@@ -52,6 +52,21 @@ BUTTON FUNCTIONS
 const size = document.querySelector('#size');
 const color = document.querySelector('#color');
 const erase = document.querySelector('#erase');
+const sidebar = document.querySelector('.customize');
+const sizeSlider = document.getElementById('#size-slider');
+
+size.addEventListener('click', () => {
+  sidebar.innerHTML = `
+    <div class="prompt">Choose your pen thickness:</div>
+    <div class="slider-container">
+      <img src="img/small.jpg" class="pen" width=20px height=20px>
+      <input type="range" min="10" max="100" value="16" class="slider" id="size-slider">
+      <img src="img/big.jpg" class="pen" width=20px height=20px>
+    </div>
+  `;
+});
+
+
 
 /*
 

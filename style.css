@@ -51,7 +51,7 @@ h2 {
   text-transform: uppercase;
   font-style: italic;
   font-weight: 100;
-  font-size: 20px;
+  font-size: 17px;
   margin: 0 0 auto 5%;
   color: #2F4858;
 }
@@ -75,7 +75,6 @@ h2 {
 
 #download:active {
   transform: scale(0.98);
-  transition: 0;
 }
 
 .disclaimer-box {
@@ -99,22 +98,6 @@ h2 {
 @font-face {
   font-family: "Bitter Bold";
   src: url("fonts/Bitter-Bold.ttf");
-}
-
-@font-face {
-  font-family: "Source Sans Pro";
-  src: url("fonts/SourceSansPro.ttf");
-}
-
-@font-face {
-  font-family: "Source Sans Pro Light";
-  src: url("fonts/SourceSansPro-Light.ttf");
-}
-
-.sidebar {
-  width: 300px;
-  height: 700px;
-  border: 1px solid red;
 }
 
 .outer {
@@ -153,6 +136,10 @@ h2 {
   filter: drop-shadow(-3px 3px lightgrey)
 }
 
+.circle:active {
+  transform: scale(0.98);
+}
+
 .sketchpad {
   background: aliceblue;
   flex: 0 1 inherit;
@@ -172,3 +159,60 @@ h2 {
 .written {
   background-color: dimgrey;
 }
+
+.sidebar {
+  width: 300px;
+  height: 700px;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.customize {
+  font-family: "Arial";
+  text-align: center;
+  width: 100%;
+  color: #2F4858;
+}
+
+.slider-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#size-slider {
+  width: 70%;
+  direction: rtl;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #ecaa1a;
+  outline: none;
+  border-radius: 10px;
+  height: 5px;
+}
+
+#size-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #F06543;
+  cursor: pointer;
+}
+
+#size-slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #F06543;
+  cursor: pointer;
+}
+
+.pen {
+  border-radius: 5px;
+  border: 1px solid dimgrey;
+}
+
