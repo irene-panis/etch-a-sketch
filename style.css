@@ -268,6 +268,14 @@ h2 {
   border: 1px solid dimgrey;
 }
 
+.drawing-mode {
+  margin-top: 10px;
+}
+
+.chosen {
+  filter: drop-shadow(0 0 2px navy);
+}
+
 
 
 

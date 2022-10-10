@@ -56,7 +56,7 @@ BUTTON FUNCTIONS
 */
 
 const size = document.querySelector('#size');
-const color = document.querySelector('#color');
+const rainbow = document.querySelector('#rainbow');
 const erase = document.querySelector('#erase');
 const sidebar = document.querySelector('.sidebar');
 const customize = document.querySelector('.customize');
@@ -135,6 +135,65 @@ erase.addEventListener('click', () => {
   createGrid(Math.sqrt(total));
 });
 
+function chooseRGB() {
+  const squares = document.querySelectorAll('.square');
+  squares.forEach((square) => {
+    square.addEventListener('mouseover', () => {
+      square.style.cssText = makeRainbow();
+    });
+  });
+}
+
+function chooseDefault() {
+  const squares = document.querySelectorAll('.square');
+  squares.forEach((square) => {
+    square.addEventListener('mouseover', () => {
+      square.style.cssText = 'background: dimgrey;';
+    });
+  });
+}
+
+rainbow.addEventListener('click', () => {
+  makeWindow();
+  chooseMode();
+});
+
+function chooseMode() {
+  const customize = document.querySelector('.customize');
+  customize.innerHTML = `
+  <div class="prompt">Choose your drawing mode!</div>
+  <div class="button-container">
+    <button class="drawing-mode" id="default">Default</button>
+    <button class="drawing-mode" id="rgb">RGB</button>
+  </div>
+  `;
+}
+
+document.addEventListener('click', (e) => {
+  if (e.target && e.target.id == 'rgb') {
+    e.target.classList.add('chosen');
+    const defaultDraw = document.querySelector('#default');
+    defaultDraw.classList.remove('chosen');
+    chooseRGB();
+  };
+});
+
+document.addEventListener('click', (e) => {
+  if (e.target && e.target.id == 'default') {
+    e.target.classList.add('chosen');
+    const rgbDraw = document.querySelector('#rgb');
+    rgbDraw.classList.remove('chosen');
+    chooseDefault();
+  };
+});
+
+function makeRainbow() {
+  let r = Math.floor(Math.random() * 256);
+  let g = Math.floor(Math.random() * 256);
+  let b = Math.floor(Math.random() * 256);
+  let result = `background: rgb(${r}, ${g}, ${b});`;
+  return result;
+}
 
 
 /*
