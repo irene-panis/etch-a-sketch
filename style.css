@@ -35,16 +35,80 @@ body {
 .headline {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 h1 {
-  font-family: Batuphat;
+  font-family: "Bitter Bold";
+  font-weight: bolder;
+  font-size: 100px;
+  margin: 0 5%;
+  color: #F06543;
+  filter: drop-shadow(-3px 3px #b9492d)
+}
+
+h2 {
+  font-family: "Arial";
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: 100;
+  font-size: 20px;
+  margin: 0 0 auto 5%;
+  color: #2F4858;
+}
+
+#download {
+  background-color: #33658A;
+  color: aliceblue;
+  padding: 15px 25px;
+  font-family: "Arial";
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 2px;
+  margin: 5%;
+}
+
+#download:hover {
+  background-color: #66849b;
+  transition: background-color .7s;
+}
+
+#download:active {
+  transform: scale(0.98);
+  transition: 0;
+}
+
+.disclaimer-box {
+  display: flex;
+  justify-content: flex-end;
+}
+.disclaimer {
+  font-family: "Arial";
+  text-transform: uppercase;
+  color: #2F4858;
+  font-size: 13px;
+  width: 40%;
+  text-align: right;
 }
 
 @font-face {
   font-family: "Batuphat";
   src: url("fonts/Batuphat\ Script.otf");
+}
+
+@font-face {
+  font-family: "Bitter Bold";
+  src: url("fonts/Bitter-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url("fonts/SourceSansPro.ttf");
+}
+
+@font-face {
+  font-family: "Source Sans Pro Light";
+  src: url("fonts/SourceSansPro-Light.ttf");
 }
 
 .sidebar {
