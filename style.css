@@ -6,21 +6,37 @@ body, html {
 body {
   height: 100vh;
   display: flex;
+  flex-direction: column;
+}
+
+.content {
+  display: flex;
   justify-content: center;
   align-items: center;
   background-color: #86BBD8;
+  flex: 1;
+}
+
+footer {
+  background-color: #6ca7c7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: lowercase;
+}
+
+#name {
+  margin: 5px;
 }
 
 .headline-box {
   flex: 2.5;
-  border: 1px solid blue;
 }
 
 .device-box {
   display: flex;
   justify-content: center;
   flex: 2;
-  border: 1px solid blue;
 }
 
 .sidebar-box {
@@ -29,7 +45,6 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  border: 1px solid blue;
 }
 
 .headline {
@@ -163,17 +178,49 @@ h2 {
 .sidebar {
   width: 300px;
   height: 700px;
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+.window {
+  border: 2px solid blue;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: blue;
+  color: white;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 3px 2px;
+}
+
+.left {
+  display: flex;
+}
+
+#x {
+  background-color: indianred;
+  border: 1px solid white;
+  border-radius: 2px;
+  padding: 2px 4px;
+  cursor: pointer;
+}
+
+#x:active {
+  transform: scale(0.98);
+}
+
 .customize {
-  font-family: "Arial";
+  font-family: 'Tahoma', 'Arial', sans-serif;
   text-align: center;
   width: 100%;
   color: #2F4858;
+  padding: 30px 0px;
 }
 
 .slider-container {
@@ -211,8 +258,16 @@ h2 {
   cursor: pointer;
 }
 
+.button {
+  margin-top: 20px;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
 .pen {
   border-radius: 5px;
   border: 1px solid dimgrey;
 }
+
+
+
 
