@@ -210,7 +210,6 @@ function chooseRGB() {
   const squares = document.querySelectorAll('.square');
   let i = 0;
   squares.forEach((square) => {
-    console.log(squares.item(i));
     i++;
     square.addEventListener('mouseover', () => {
       square.style.backgroundColor = makeRainbow();
