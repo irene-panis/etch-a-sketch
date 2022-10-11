@@ -38,10 +38,7 @@ function calcSide(numSquares) {
 }
 
 function resetGrid() {
-  const squares = document.querySelectorAll('.square');
-  squares.forEach((square) => {
-    sketchpad.removeChild(square);
-  })
+  sketchpad.innerHTML = "";
 }
 
 function count() {
@@ -51,7 +48,7 @@ function count() {
 
 /*
 
-BUTTON FUNCTIONS
+ELEMENTS AND VARIABLES
 
 */
 
@@ -60,6 +57,16 @@ const rainbow = document.querySelector('#rainbow');
 const erase = document.querySelector('#erase');
 const sidebar = document.querySelector('.sidebar');
 const customize = document.querySelector('.customize');
+let storedValue = 16; // for detecting slider changes
+let newValue = 16; // for detecting slider changes
+let currentMode = 0; // 0 for default, 1 for rgb
+let buttonActive = 'default'; // stores which button is highlighted
+
+/*
+
+SIDEBAR WINDOW (MISC.)
+
+*/
 
 function makeWindow() {
   sidebar.innerHTML = `
@@ -77,7 +84,21 @@ function makeWindow() {
   `;
 }
 
+document.addEventListener('click', (e) => {
+  if (e.target && e.target.id == 'x') {
+    clearSidebar();
+  }
+});
 
+function clearSidebar() {
+  sidebar.innerHTML = "";
+}
+
+/*
+
+SIZE BUTTON
+
+*/
 
 size.addEventListener('click', () => {
   makeWindow();
@@ -95,13 +116,9 @@ function customizeSize() {
     <input type="range" min="10" max="100" value="${value}" class="slider" id="size-slider">
     <img src="img/big.jpg" class="pen" width=20px height=20px>
   </div>
-  <button id="select-size">Select</button>
+  <button class="window-button" id="select-size">Select</button>
 `;
 }
-
-// variables to detect slider value changes
-let storedValue = 16;
-let newValue = 16;
 
 document.addEventListener('change', (e) => {
   if (e.target && e.target.id == 'size-slider') {
@@ -116,39 +133,98 @@ document.addEventListener('click', (e) => {
       storedValue = newValue; // then store new slider value
     } // otherwise, if slider value has stayed the same,
     clearSidebar(); // simply clear the sidebar w/o clearing grid
+    if (currentMode == 0) {
+      chooseDefault();
+    } else {
+      chooseRGB();
+    }
+  }
+});
+
+/*
+
+ERASE BUTTON
+
+*/
+
+erase.addEventListener('click', () => {
+  makeWindow();
+  confirmErase();
+});
+
+function confirmErase() {
+  const customize = document.querySelector('.customize');
+  customize.innerHTML = `
+    <div class="prompt">Are you sure you want to clear your sketchpad?</div>
+    <div class="button-container">
+      <button class="window-button" id="yes">Yes</button>
+      <button class="window-button" id="no">No</button>
+    </div>
+  `;
+}
+
+document.addEventListener('click', (e) => {
+  if (e.target && e.target.id == 'yes') {
+    clearSidebar();
+    let total = count();
+    createGrid(Math.sqrt(total));
+  }
+});
+
+document.addEventListener('click', (e) => {
+  if (e.target && e.target.id == 'no') {
+    clearSidebar();
   }
 })
 
-document.addEventListener('click', (e) => {
-  if (e.target && e.target.id == 'x') {
-    clearSidebar();
-  }
-});
+/*
 
-function clearSidebar() {
-  sidebar.innerHTML = "";
+RGB BUTTON
+
+*/
+
+function chooseMode() {
+  const customize = document.querySelector('.customize');
+  if (buttonActive == 'default') {
+    customize.innerHTML = `
+      <div class="prompt">Choose your drawing mode!</div>
+      <div class="button-container">
+        <button class="window-button chosen" id="default">Default</button>
+        <button class="window-button" id="rgb">RGB</button>
+      </div>
+    `;
+  } else {
+    customize.innerHTML = `
+      <div class="prompt">Choose your drawing mode!</div>
+      <div class="button-container">
+        <button class="window-button" id="default">Default</button>
+        <button class="window-button chosen" id="rgb">RGB</button>
+      </div>
+    `;
+  }
 }
 
-erase.addEventListener('click', () => {
-  clearSidebar();
-  let total = count();
-  createGrid(Math.sqrt(total));
-});
-
 function chooseRGB() {
+  currentMode = 1;
+  buttonActive = 'rgb';
   const squares = document.querySelectorAll('.square');
+  let i = 0;
   squares.forEach((square) => {
+    console.log(squares.item(i));
+    i++;
     square.addEventListener('mouseover', () => {
-      square.style.cssText = makeRainbow();
+      square.style.backgroundColor = makeRainbow();
     });
   });
 }
 
 function chooseDefault() {
+  currentMode = 0;
+  buttonActive = 'default';
   const squares = document.querySelectorAll('.square');
   squares.forEach((square) => {
     square.addEventListener('mouseover', () => {
-      square.style.cssText = 'background: dimgrey;';
+      square.style.backgroundColor = 'dimgrey';
     });
   });
 }
@@ -157,17 +233,6 @@ rainbow.addEventListener('click', () => {
   makeWindow();
   chooseMode();
 });
-
-function chooseMode() {
-  const customize = document.querySelector('.customize');
-  customize.innerHTML = `
-  <div class="prompt">Choose your drawing mode!</div>
-  <div class="button-container">
-    <button class="drawing-mode" id="default">Default</button>
-    <button class="drawing-mode" id="rgb">RGB</button>
-  </div>
-  `;
-}
 
 document.addEventListener('click', (e) => {
   if (e.target && e.target.id == 'rgb') {
@@ -191,7 +256,7 @@ function makeRainbow() {
   let r = Math.floor(Math.random() * 256);
   let g = Math.floor(Math.random() * 256);
   let b = Math.floor(Math.random() * 256);
-  let result = `background: rgb(${r}, ${g}, ${b});`;
+  let result = `rgb(${r}, ${g}, ${b})`;
   return result;
 }
 

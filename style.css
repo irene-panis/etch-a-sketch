@@ -29,80 +29,19 @@ footer {
   margin: 5px;
 }
 
-.headline-box {
-  flex: 2.5;
-}
-
 .device-box {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   flex: 2;
 }
 
 .sidebar-box {
   display: flex;
-  flex: 1.5;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-}
-
-.headline {
-  display: flex;
-  flex-direction: column;
-}
-
-h1 {
-  font-family: "Bitter Bold";
-  font-weight: bolder;
-  font-size: 100px;
-  margin: 0 5%;
-  color: #F06543;
-  filter: drop-shadow(-3px 3px #b9492d)
-}
-
-h2 {
-  font-family: "Arial";
-  text-transform: uppercase;
-  font-style: italic;
-  font-weight: 100;
-  font-size: 17px;
-  margin: 0 0 auto 5%;
-  color: #2F4858;
-}
-
-#download {
-  background-color: #33658A;
-  color: aliceblue;
-  padding: 15px 25px;
-  font-family: "Arial";
-  font-size: 20px;
-  font-weight: bold;
-  border: none;
-  border-radius: 2px;
-  margin: 5%;
-}
-
-#download:hover {
-  background-color: #66849b;
-  transition: background-color .7s;
-}
-
-#download:active {
-  transform: scale(0.98);
-}
-
-.disclaimer-box {
-  display: flex;
-  justify-content: flex-end;
-}
-.disclaimer {
-  font-family: "Arial";
-  text-transform: uppercase;
-  color: #2F4858;
-  font-size: 13px;
-  width: 40%;
-  text-align: right;
+  padding: 2%;
 }
 
 @font-face {
@@ -110,10 +49,6 @@ h2 {
   src: url("fonts/Batuphat\ Script.otf");
 }
 
-@font-face {
-  font-family: "Bitter Bold";
-  src: url("fonts/Bitter-Bold.ttf");
-}
 
 .outer {
   display: flex;
@@ -187,6 +122,11 @@ h2 {
   border: 2px solid blue;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
+  filter: drop-shadow(-5px 5px lightgrey)
+}
+
+.prompt {
+  padding: 0 5px;
 }
 
 .title-bar {
@@ -258,18 +198,20 @@ h2 {
   cursor: pointer;
 }
 
-.button {
-  margin-top: 20px;
-  font-family: Tahoma, Arial, sans-serif;
-}
-
 .pen {
   border-radius: 5px;
   border: 1px solid dimgrey;
 }
 
-.drawing-mode {
+.window-button {
   margin-top: 10px;
+  -webkit-appearance: none;
+  padding: 2px 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .chosen {
