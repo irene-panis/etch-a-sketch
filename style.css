@@ -11,7 +11,7 @@ body {
 
 .content {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: #86BBD8;
   flex: 1;
@@ -29,19 +29,26 @@ footer {
   margin: 5px;
 }
 
+.placeholder-box {
+  width: 15%;
+  padding: 2%;
+  flex: 1;
+}
+
 .device-box {
   display: flex;
-  justify-content: flex-end;
-  flex: 2;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .sidebar-box {
   display: flex;
-  flex: 1;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   padding: 2%;
+  width: 15%;
+  flex: 1;
 }
 
 @font-face {
@@ -216,6 +223,10 @@ footer {
 
 .chosen {
   filter: drop-shadow(0 0 2px navy);
+}
+
+#github {
+  margin-top: 2px;
 }
 
 
